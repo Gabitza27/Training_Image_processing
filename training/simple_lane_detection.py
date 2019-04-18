@@ -1,16 +1,17 @@
 import cv2
 import os
 import requests
+import PIL
 from PIL import Image
 from matplotlib import pyplot as plt
 
 import matplotlib.pyplot as plt #interfata pentru afisare de imagini
 import matplotlib.image as mpimg #incarcare de imagini
 import numpy as np # pentru lucrul cu arrays
-
-from IPython.display import set_matplotlib_formats
-set_matplotlib_formats('png', 'jpg')
 import csv
+
+
+from matplotlib import pylab, mlab
 ###############################################################
 
 
@@ -20,14 +21,16 @@ img = cv2.imread(image_path,0)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # converts from BGR to RGB
 cv2.imshow('STREET', img)
 cv2.waitKey(0)
+from IPython.display import set_matplotlib_formats
+set_matplotlib_formats('png', 'jpg')
 
 
-
-imageDir = "D:\\GIT\\Training_image_procesing\\tests image\\"
+imageDir = "D:\\GIT\\Training_image_procesing\\tests image"
 imageFiles = os.listdir(imageDir)
 imageList = [] #this list will contain all the test images
+
 for i in range(0, len(imageFiles)):
-    imageList.append(mpimg.imread(imageDir+ imageFiles[i]))
+    imageList.append(mpimg.imread(imageDir + "\\" + imageFiles[i]))
 
 def display_images(images, cmap=None):
     plt.figure(figsize=(40,40))
