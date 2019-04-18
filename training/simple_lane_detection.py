@@ -56,3 +56,5 @@ def color_filter(image):
     mask = cv2.bitwise_or(yellowmask, whitemask)
     masked = cv2.bitwise_and(image, image, mask = mask)
     return masked
+filtered_img = list(map(color_filter, imageList))
+display_images(filtered_img)
