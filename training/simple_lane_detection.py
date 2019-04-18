@@ -3,15 +3,16 @@ import os
 import requests
 import PIL
 from PIL import Image
-from matplotlib import pyplot as plt
+
 
 import matplotlib.pyplot as plt #interfata pentru afisare de imagini
 import matplotlib.image as mpimg #incarcare de imagini
+
 import numpy as np # pentru lucrul cu arrays
 import csv
 
 
-from matplotlib import pylab, mlab
+#from matplotlib import pylab, mlab
 ###############################################################
 
 
