@@ -42,3 +42,17 @@ def display_images(images, cmap=None):
     plt.show()
 
 display_images(imageList)
+
+hls = cv2.cvtColor(image, cv2.COLOR_RGB2HLS)
+def color_filter(image):
+    #convert to HLS to mask based on HLS
+    hls = cv2.cvtColor(image, cv2.COLOR_RGB2HLS)
+    lower = np.array([0,190,0])
+    upper = np.array([255,255,255])
+    yellower = np.array([10,0,90])
+    yelupper = np.array([50,255,255])
+    yellowmask = cv2.inRange(hls, yellower, yelupper)
+    whitemask = cv2.inRange(hls, lower, upper)
+    mask = cv2.bitwise_or(yellowmask, whitemask)
+    masked = cv2.bitwise_and(image, image, mask = mask)
+    return masked
